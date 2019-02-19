@@ -3,7 +3,9 @@ package shazinltc.warmup.sockmerchant;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -12,16 +14,17 @@ public class Solution {
     // Complete the sockMerchant function below.
     static int sockMerchant(int n, int[] ar) {
 
-        Map<Integer, Integer> colorMap = new HashMap<>();
-        Integer color;
-        for (int i=0; i<ar.length; i++)
+        Arrays.sort(ar);
+        int count = 0;
+        for (int i=0; i < n-1; i++)
         {
-        	//ad
-        	color = ar[i];
-        	Integer count = colorMap.get(color) != null ? colorMap.get(color) : 0;
-        	colorMap.put(color, count + 1);
+        	if (ar[i] == ar[i+1])
+        	{
+        		count = count + 1;
+        		i = i + 1;
+        	}
         }
-        return colorMap.values().stream().mapToInt(i -> i/2).sum();
+        return count;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
