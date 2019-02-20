@@ -12,7 +12,6 @@ public class Solution {
 
     // Complete the countingValleys function below.
     static int countingValleys(int n, String s) {
-    	boolean startedDescend = false;
     	char[] steps = s.toCharArray();
     	int currentLevel = 0;
     	int count = 0;
@@ -25,14 +24,9 @@ public class Solution {
     		{
     			currentLevel--;
     		}
-    		if (currentLevel < 0)
-    		{
-    			startedDescend = true;
-    		}
-    		if (startedDescend && currentLevel == 0)
+    		if (steps[i] == 'U' && currentLevel == 0)
     		{
     			count++;
-    			startedDescend = false;
     		}
     	}
     	return count;
