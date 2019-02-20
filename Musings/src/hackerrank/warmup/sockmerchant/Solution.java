@@ -1,4 +1,4 @@
-package shazinltc.warmup.sockmerchant;
+package hackerrank.warmup.sockmerchant;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

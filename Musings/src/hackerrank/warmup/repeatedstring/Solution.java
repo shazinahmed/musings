@@ -1,4 +1,4 @@
-package shazinltc.warmup.repeatedstring;
+package hackerrank.warmup.repeatedstring;
 
 import java.io.*;
 import java.math.*;
