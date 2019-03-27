@@ -5,11 +5,13 @@ public class Solution {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] intArray = new int[] {3,4,1,9,23,1,4,-1,8};
-		quickSort(intArray, 0, 8);
+		//quickSort(intArray, 0, 8);
 		for (int i=0; i<intArray.length; i++)
 		{
 			System.out.print(intArray[i] + " ");
 		}
+		System.out.println("");
+		System.out.println(findKthElement(intArray, 0, 8, 1));
 
 	}
 	
@@ -42,5 +44,23 @@ public class Solution {
 		arr[i+1] = pivot;
 		arr[high] = temp;
 		return i+1;
+	}
+	
+	private static int findKthElement(int[] arr, int low, int high, int k)
+	{
+		if (k-1 > high)
+		{
+			return 0;
+		}
+		int pi = partition(arr, low, high);
+		if (pi != k-1 && pi < k-1)
+		{
+			return findKthElement(arr, pi+1, high, k);
+		}
+		if (pi != k-1 && pi > k-1)
+		{
+			return findKthElement(arr, low, pi - 1, k);
+		}
+		return arr[pi];
 	}
 }
