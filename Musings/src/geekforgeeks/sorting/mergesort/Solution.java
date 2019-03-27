@@ -6,13 +6,18 @@ public class Solution {
 	
 	public static void main(String[] args) throws IOException
 	{
-		int[] intArray = new int[] {3,4,1,9,23,1,4};
+		int[] intArray = new int[] {3,4,1,9,23,1,4,-1,-8};
 		mergeSort(intArray, intArray.length);
 		for (int i=0; i<intArray.length; i++)
 		{
-			System.out.println(intArray[i]);
+			System.out.print(intArray[i] + " ");
 		}
-		
+		System.out.println("");
+		mergeSortIterative(intArray, intArray.length);
+		for (int i=0; i<intArray.length; i++)
+		{
+			System.out.print(intArray[i] + " ");
+		}
 	}
 
 	private static void mergeSort(int[] ar, int n)
@@ -35,12 +40,12 @@ public class Solution {
 		}
 		mergeSort(leftArr, left);
 		mergeSort(rightArr, right);
-		merge(ar, leftArr, rightArr, left, right, n);		
+		merge(ar, leftArr, rightArr, left, right, 0);		
 	}
 	
-	private static void merge(int[] arr, int[] left, int[] right, int l, int r, int n) 
+	private static void merge(int[] arr, int[] left, int[] right, int l, int r, int offset) 
 	{
-		int i=0, j=0, k=0;
+		int i=0, j=0, k=offset;
 		while (i < l && j < r)
 		{
 			if (left[i] >= right[j])
@@ -58,6 +63,33 @@ public class Solution {
 		while (j < r)
 		{
 			arr[k++] = right[j++];
+		}
+	}
+	
+	private static void mergeSortIterative(int[] ar, int n)
+	{
+		if (n<2)
+		{
+			return;
+		}
+		for (int k=1; k < n-1; k = k*2)
+		{
+			for (int i=0; i < n-k; i += 2*k)
+			{
+				int[] left = new int[k], right = new int[k];
+				int l = 0,r = 0;
+				for (int m=0; m<k; m++)
+				{
+					l++;
+					left[m] = ar[i+m];
+				}
+				for (int m=0; m<k && i+k+m<n; m++)
+				{
+					r++;
+					right[m] = ar[i+k+m];
+				}
+				merge(ar, left, right, l, r, i);
+			}
 		}
 	}
 }
