@@ -1,4 +1,4 @@
-package geekforgeeks.sorting.countingsort;
+package musings.sorting.countingsort;
 
 import java.util.Arrays;
 

@@ -1,11 +1,11 @@
-package geekforgeeks.sorting.quicksort;
+package musings.sorting.quicksort;
 
 public class Solution {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] intArray = new int[] {3,4,1,9,23,1,4,-1,8};
-		//quickSort(intArray, 0, 8);
+		quickSort(intArray, 0, 8);
 		for (int i=0; i<intArray.length; i++)
 		{
 			System.out.print(intArray[i] + " ");

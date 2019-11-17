@@ -1,4 +1,4 @@
-package geekforgeeks.sorting.treesort;
+package musings.sorting.treesort;
 
 public class Solution {
 

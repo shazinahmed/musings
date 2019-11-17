@@ -1,4 +1,4 @@
-package hackerrank.warmup.repeatedstring;
+package musings.warmup.repeatedstring;
 
 import java.io.*;
 import java.math.*;
@@ -12,6 +12,9 @@ public class Solution {
 
     // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
+    	int charray[] = new int[565];
+    	String str = "seed";
+    	++charray['a'];
     	int stringLength = s.length();
     	long times = n/stringLength;
     	int remainder = (int) (n%stringLength);

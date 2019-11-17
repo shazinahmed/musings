@@ -1,4 +1,4 @@
-package geekforgeeks.sorting.mergesort;
+package musings.sorting.mergesort;
 
 import java.io.IOException;
 

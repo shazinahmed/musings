@@ -1,4 +1,4 @@
-package hackerrank.warmup.jumpingclouds;
+package musings.warmup.countingvalley;
 
 import java.io.*;
 import java.math.*;
@@ -10,16 +10,24 @@ import java.util.regex.*;
 
 public class Solution {
 
-    // Complete the jumpingOnClouds function below.
-    static int jumpingOnClouds(int[] c) {
+    // Complete the countingValleys function below.
+    static int countingValleys(int n, String s) {
+    	char[] steps = s.toCharArray();
+    	int currentLevel = 0;
     	int count = 0;
-    	for (int i=0; i<c.length - 1; i++)
+    	for (int i=0; i<steps.length; i++)
     	{
-    		if (i<c.length-2 && c[i+2] != 1)
+    		if (steps[i] == 'U')
     		{
-    			i = i+1;
+    			currentLevel++;
+    		}else
+    		{
+    			currentLevel--;
     		}
-    		count = count + 1;
+    		if (steps[i] == 'U' && currentLevel == 0)
+    		{
+    			count++;
+    		}
     	}
     	return count;
     }
@@ -28,21 +36,13 @@ public class Solution {
 
     public static void main(String[] args) throws IOException {
 //        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-//
-        int n = 6;
+
+        int n = 8;
 //        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        int[] c = new int[] {0,0,0,0,1,0};
+        String s = "UDDDUDUU";
 
-//        String[] cItems = scanner.nextLine().split(" ");
-//        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-//
-//        for (int i = 0; i < n; i++) {
-//            int cItem = Integer.parseInt(cItems[i]);
-//            c[i] = cItem;
-//        }
-
-        int result = jumpingOnClouds(c);
+        int result = countingValleys(n, s);
         System.out.println(result);
 
 //        bufferedWriter.write(String.valueOf(result));

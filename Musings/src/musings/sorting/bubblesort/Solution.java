@@ -1,4 +1,4 @@
-package hackerrank.sorting.bubblesort;
+package musings.sorting.bubblesort;
 
 import java.io.*;
 import java.math.*;
